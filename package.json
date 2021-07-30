@@ -4,18 +4,21 @@
   "description": "The node module for Log Harvestor",
   "main": "index.js",
   "publishConfig": {
+    
+    "access": "public",
     "registry": "https://npm.pkg.github.com/@solomon-bush"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "keywords": ["logging", "log-harvestor", "log harvestor", "log", "harvestor", "harvester", "forwarder"],
+  "author": "solomon@logharvestor.com",
+  "license": "ISC",
+  
   "repository": {
     "type": "git",
     "url": "git+https://github.com/solomon-bush/log-harvestor-node.git"
   },
-  "keywords": ["logging", "log-harvestor", "log harvestor", "log", "harvestor", "harvester", "forwarder"],
-  "author": "solomon@logharvestor.com",
-  "license": "ISC",
   "bugs": {
     "url": "https://github.com/solomon-bush/log-harvestor-node/issues"
   },
