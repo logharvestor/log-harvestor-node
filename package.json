@@ -3,11 +3,6 @@
   "version": "1.0.0",
   "description": "The node module for Log Harvestor",
   "main": "index.js",
-  "publishConfig": {
-    
-    "access": "public",
-    "registry": "https://npm.pkg.github.com/@solomon-bush"
-  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
