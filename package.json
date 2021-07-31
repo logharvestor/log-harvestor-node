@@ -2,14 +2,14 @@
   "name": "log-harvestor-node",
   "version": "1.0.0",
   "description": "The node module for Log Harvestor",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": ["logging", "log-harvestor", "log harvestor", "log", "harvestor", "harvester", "forwarder"],
   "author": "solomon@logharvestor.com",
   "license": "ISC",
-  
+  "files": ["src/"],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/solomon-bush/log-harvestor-node.git"
