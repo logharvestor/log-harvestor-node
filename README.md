@@ -1,5 +1,7 @@
 # log-harvestor-node
 
+[![Rate on Openbase](https://badges.openbase.com/js/rating/log-harvestor-node.svg)](https://openbase.com/js/log-harvestor-node?utm_source=embedded&utm_medium=badge&utm_campaign=rate-badge)
+
 ## Documentation
 See [API Docs](https://www.logharvestor.com/#/docs/api) for Log-Harvestor.
 
@@ -98,5 +100,5 @@ ___________
 
 ## Recomendations
 ________________
-1. Keep your Loggin specific, and consise. This makes searching faster and more accurate
+1. Keep your Logging specific, and consise. This makes searching faster and more accurate
 2. No need to add timestamps or info about the forwarder. This information is automatically included with the log.
