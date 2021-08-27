@@ -1,6 +1,6 @@
 {
   "name": "log-harvestor-node",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "The node module for Log Harvestor",
   "main": "src/index.js",
   "scripts": {
