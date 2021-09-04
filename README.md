@@ -86,7 +86,7 @@ ___________
         - Log Object
             ```Javascript
                 LogHarvestor.log('Simple Object', {title: 'Hello World'})
-                LogHarvestor.log('Null Object', {title: 'Hello World'})
+                LogHarvestor.log('Null Object', {})
                 LogHarvestor.log('Big Object', {
                     title: 'Hello World',
                     description: 'Logging is easy now',
