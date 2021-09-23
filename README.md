@@ -1,4 +1,4 @@
-<p align="center"><a href="https://www.logharvestor.com" target="_blank" rel="noopener" referrerpolicy='origin'><img width="70%" src="https://i.ibb.co/WtHJgnz/logo-wht.png" alt="LogHarvestor Logo"></a></p>
+<p align="center"><a href="https://www.logharvestor.com" target="_blank" rel="noopener" referrerpolicy='origin'><img width="70%" src="https://i.ibb.co/gwFL3jk/logo-drk.png" alt="LogHarvestor Logo"></a></p>
 
 
 <p align="center">
