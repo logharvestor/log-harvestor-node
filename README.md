@@ -1,6 +1,22 @@
+<p align="center"><a href="https://www.logharvestor.com" target="_blank" rel="noopener" referrerpolicy='origin'><img width="70%" src="https://i.ibb.co/WtHJgnz/logo-wht.png" alt="LogHarvestor Logo"></a></p>
+
+
+<p align="center">
+  <a href="https://www.linkedin.com/company/log-harvestor" rel="nofollow">
+    <img src="https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white" alt="Log Harvestor - LinkedIn"> 
+  </a> &nbsp; 
+  <a href="https://twitter.com/LogHarvestor" rel="nofollow">
+    <img src="https://img.shields.io/badge/Twitter-%231DA1F2.svg?style=for-the-badge&logo=Twitter&logoColor=white" alt="LogHarvestor - Twitter">
+  </a> &nbsp; 
+  <a href="https://www.youtube.com/channel/UCS9BdZPla9UbUQ3AZJEzVvw" rel="nofollow">
+    <img src="https://img.shields.io/badge/YouTube-%23FF0000.svg?style=for-the-badge&logo=YouTube&logoColor=white" alt="Log Harvestor - You Tube">
+  </a>
+</p>
+
 # log-harvestor-node
 
 [![Rate on Openbase](https://badges.openbase.com/js/rating/log-harvestor-node.svg)](https://openbase.com/js/log-harvestor-node?utm_source=embedded&utm_medium=badge&utm_campaign=rate-badge)
+
 
 ## Documentation
 See [API Docs](https://www.logharvestor.com/#/docs/api) for Log-Harvestor.
@@ -102,3 +118,7 @@ ___________
 ________________
 1. Keep your Logging specific, and consise. This makes searching faster and more accurate
 2. No need to add timestamps or info about the forwarder. This information is automatically included with the log.
+
+
+
+<p align="center"><a href="https://www.logharvestor.com" target="_blank" rel="noopener" referrerpolicy='origin'><img width="100" src="https://i.ibb.co/80sThNP/icon-drk.png" alt="LogHarvestor Logo"></a></p>
