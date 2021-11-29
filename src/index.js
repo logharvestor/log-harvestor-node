@@ -3,7 +3,7 @@ const axios = require('axios')
 const qs = require('qs')
 
 /* CONSTANTS */
-const API_URL = 'https://www.logharvestor.com/api/log'
+const API_URL = 'https://app.logharvestor.com/api/log'
 
 /* DEFAULTS */
 let BATCH = false
