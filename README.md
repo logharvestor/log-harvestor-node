@@ -19,7 +19,7 @@
 
 
 ## Documentation
-See [API Docs](https://www.logharvestor.com/#/docs/api) for Log-Harvestor.
+See [API Docs](https://www.logharvestor.com/docs/api) for Log-Harvestor.
 
 This package is specific to node. Please see our docs for other supported languages, or use standard HTTP requests.
 
@@ -41,8 +41,8 @@ _____________
 This package requires that you have a **Log Harvestor** account, and *Forwarder's* created.
 If you have not done this yet:
 1. Go to [LogHarvestor.com](https://www.logharvestor.com)
-2. Register for a new Account (This is free)  
-3. Create a new Forwarder - [Link](https://www.logharvestor.com/#/v1/forwarder)
+2. Register for a new Account (This is free) [Register](https://app.logharvestor.com/register)  
+3. Create a new Forwarder - [Link](https://app.logharvestor.com/forwarder)
 4. Generate a Forwarder Token
 
 Now you can use this forwarder token to send logs, by adding it to the config:
