@@ -1,6 +1,6 @@
 {
   "name": "log-harvestor-node",
-  "version": "1.6.1",
+  "version": "1.6.2",
   "description": "The node module for Log Harvestor",
   "main": "src/index.js",
   "scripts": {
@@ -14,7 +14,11 @@
     "harvestor",
     "harvester",
     "javascript logger",
-    "log4j alternative"
+    "log4j alternative",
+    "log4j",
+    "log4js",
+    "winston",
+    "bunyan"
   ],
   "author": "solomon@logharvestor.com",
   "license": "ISC",
