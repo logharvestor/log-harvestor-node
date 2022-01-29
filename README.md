@@ -21,7 +21,7 @@
 ## Documentation
 See [API Docs](https://www.logharvestor.com/docs/api) for Log-Harvestor.
 
-This package is specific to node. Please see our docs for other supported languages, or use standard HTTP requests.
+This package is specific to `NodeJS`. Please see our docs for other supported languages, or use standard HTTP requests.
 
 ## Installation
 ______________
@@ -36,7 +36,7 @@ or
 yarn add log-harvestor-node
 ```
 
-## Usage
+## Getting Started
 _____________
 This package requires that you have a **Log Harvestor** account, and *Forwarder's* created.
 If you have not done this yet:
@@ -45,16 +45,14 @@ If you have not done this yet:
 3. Create a new Forwarder - [Link](https://app.logharvestor.com/forwarder)
 4. Generate a Forwarder Token
 
-Now you can use this forwarder token to send logs, by adding it to the config:
+Now you can use this forwarder token to send logs, by adding it to a new `Forwarder`.
 ```JavaScript
-const LogHarvestor = require('log-harvestor-node');
+const { Forwarder } = require('log-harvestor-node');
 
 const FWDR_TOKEN = 'your_forwarder_token'
 
-LogHarvestor.configure(FWDR_TOKEN)
-
-LogHarvestor.log('test', {title: 'Hello World'})
-
+const fwdr = new Forwarder({token: FWDR_TOKEN})
+fwdr.log({ type: 'test', msg: { title: 'Hello World' } })
 ```
 ## Configuration
 ___________
@@ -66,53 +64,201 @@ ___________
 | **VERBOSE**       | false         | Verbose mode prints info to the console  |
 
 
-## Methods
-- ### **Configure**
-    - Params
-        - TOKEN: **STRING**
-        - OPTIONS: **OBJECT** (*See Configuration Section*)
-    - Returns **BOOLEAN**
-    - Example:
-        - All Args
-            ```Javascript
-                const LogHarvestor = require('log-harvestor-node');
-                const FWDR_TOKEN = 'your_forwarder_token'
-                LogHarvestor.configure(FWDR_TOKEN, {
-                    BATCH: true,
-                    INTERVAL: 30,
-                    VERBOSE: true
-                })
-            ```
-        - Default Args
-            ```JavaScript
-                const LogHarvestor = require('log-harvestor-node');
-                const FWDR_TOKEN = 'your_forwarder_token'
-                LogHarvestor.configure(FWDR_TOKEN)
-            ```
-- ### **Log**
-    - Params
-        - TYPE: **STRING**
-        - MSG: **ANY**
-    - Returns: **VOID**
-    - Example:
-        - Log String
-            ```Javascript
-                LogHarvestor.log('Simple String', 'Wow! This is easy')
-            ```
-        - Log Object
-            ```Javascript
-                LogHarvestor.log('Simple Object', {title: 'Hello World'})
-                LogHarvestor.log('Null Object', {})
-                LogHarvestor.log('Big Object', {
-                    title: 'Hello World',
-                    description: 'Logging is easy now',
-                    metadata: {
-                        t: Date.now()
-                        traceId: '123ABC'
-                    },
-                    comment: 'You can put anything you want!'
-                })
-            ```
+## Sending Logs
+___________
+
+```JavaScript
+const { Forwarder } = require('log-harvestor-node');
+const FWDR_TOKEN = 'your_forwarder_token'
+const fwdr = new Forwarder({token: FWDR_TOKEN})
+
+/* Log Types 
+    - The log type is a string
+    - This is the primary way logs are categorized & indexed
+*/
+fwdr.log({ type: 'any',     msg: 'message' })
+fwdr.log({ type: 'thing',   msg: 'message' })
+fwdr.log({ type: 'works',   msg: 'message' })
+
+/* Log Messages 
+    - Any valid type that you want
+*/
+
+// Numbers
+fwdr.log({ type: 'test',    msg: 123456789 })
+fwdr.log({ type: 'test',    msg: 0.000212  })
+// Strings
+fwdr.log({ type: 'test',    msg: 'What is my purpose?' })
+fwdr.log({ type: 'test',    msg: 'You forward logs...' })
+fwdr.log({ type: 'test',    msg: '-o_O-' })
+// Arrays
+fwdr.log({ type: 'test',    msg: [1,2,'3'] })
+fwdr.log({ type: 'test',    msg: ['I', { logs: '<3' }, '!' ] })
+// Objects
+fwdr.log({ 
+    type: 'test',    
+    msg: { 
+        title: 'Hello World', 
+        desc: { 
+            so: 'long', 
+            and: 'thanks for all the fish!' 
+        },
+        trace: '42' 
+    } 
+})
+```
+## Handling Errors
+___________
+
+```JavaScript
+/* ASYNC */
+const example = async () => {
+    try{
+        await res = fwdr.log({type: 'hello', msg: 'world'})
+    }catch(e){
+        // Handle Error Logic
+    }
+}
+
+/* Then/Catch */
+fwdr.log({type: 'hello', msg: 'world'})
+    .then(() => {})
+    .catch(() => {})
+```
+
+## Connection Test
+___________
+```JavaScript
+const { Forwarder } = require('log-harvestor-node');
+const BAD_TOKEN = 'invalid_token'
+
+const fwdr = new Forwarder({token: BAD_TOKEN})
+
+/* 
+    testConn returns a promise. 
+    You can handle it however you like.
+*/
+fwdr.testConn()
+    .then(() => {})
+    .catch(() => {})
+
+```
+
+## Config Validation
+___________
+```JavaScript
+const { Forwarder } = require('log-harvestor-node');
+const INVALID_TOKEN = 'invalid token'
+const VALID_TOKEN = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImZvcndhcmRlciJ9.eyJfaWQiOiI2MTI4OTIwYjNjMzQyNTAwMjFkZGQyMTciLCJpYXQiOjE2MzAwNDg3ODN9.sb8lfpp01CC-y0T9Z5XiIEdy-JBeDHSBD8Gd05bZYaQ'
+
+/* Valid Tokens are JWTs */
+
+const validTest = Forwarder.validateConfig({token: INVALID_TOKEN})
+console.log(validTest)
+/* 
+    { valid: true, errors: [] }
+*/
+
+const invalidTest = Forwarder.validateConfig({token: VALID_TOKEN})
+console.log(invalidTest)
+/* 
+    {
+        valid: false,
+        errors: [
+            ConfigValidtionError.INVALID_TOKEN
+        ]
+    }
+*/
+```
+## Multiple Forwarders
+________
+```Javascript
+const { Forwarder } = require('log-harvestor-node');
+
+const FWDR_TOKEN_ONE = 'your_forwarder_token_one'
+const fwdrOne = new Forwarder({token: FWDR_TOKEN_ONE})
+fwdrOne.log(...)
+
+
+const FWDR_TOKEN_TWO = 'your_forwarder_token_two'
+const fwdrTwo = new Forwarder({token: FWDR_TOKEN_TWO})
+fwdrTwo.log(...)
+```
+## Same Forwarder - Multiple Configs
+_________
+```Javascript
+const { Forwarder } = require('log-harvestor-node');
+
+const FWDR_TOKEN = 'your_forwarder_token'
+
+const fwdrMain = new Forwarder({token: FWDR_TOKEN})
+const fwdrSecondary = new Forwarder({token: FWDR_TOKEN})
+
+fwderMain.log({type: 'super', msg: 'flexible'})
+fwderSecondary.log({type: 'json', msg: 'is awesome'})
+```
+## Batching
+_________
+This is one of the more complex functionalities of LogHarvestors SDK
+
+Batch Mode, enables the forwarder to send logs on a polling-style interval
+
+To enable `batch` just set `{ batch: true }` when creating the forwarder
+
+Now whenever you create a new log, it will be added to the `bucket`
+
+The forwarder will check it's `bucket` on an interval, and send all the logs within
+the bucket in a single request - saving on bandwith.
+
+To control the frequency of the batching, just set the interval `{ interval: {{ INTEGER }} }`
+
+### *For example*: 
+```Javascript
+const { Forwarder } = require('log-harvestor-node');
+const FWDR_TOKEN = 'your_forwarder_token'
+
+const fwdr = new Forwarder({
+    token: FWDR_TOKEN,
+    batch: true,
+    interval: 60 // 60 Second interval
+})
+```
+
+To test this, try implementing the snippet bellow:
+
+```Javascript
+const { Forwarder } = require('log-harvestor-node');
+const FWDR_TOKEN = 'your_forwarder_token'
+
+const fwdr = new Forwarder({
+    token: FWDR_TOKEN,
+    batch: true,
+    interval: 30 // Every 30 seconds, your forwarder will try to send a batch of logs
+})
+
+fwdr.log({type: 'savin', msg: 'bandwidth'})
+fwdr.log({type: 'batch', msg: 'mode rocks!'})
+
+console.log(fwdr.bucket)
+/* 
+[
+    { id: 12341591234, log: { type: 'savin', msg: 'bandwidth' } },
+    { id: 76841587912, log: { type: 'batch', msg: 'mode rocks!' } },
+]
+*/
+setTimeout(() => {
+    console.log(fwdr.bucket)
+/* No more logs!
+    []
+*/
+}, 32000) // 32 Seconds
+
+```
+
+
+
+
+
 
 ## Recomendations
 ________________

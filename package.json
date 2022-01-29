@@ -1,11 +1,53 @@
 {
   "name": "log-harvestor-node",
-  "version": "1.7.1",
   "description": "The node module for Log Harvestor",
-  "main": "src/index.js",
+  "version": "1.7.1",
+  "contributors": [
+    {
+      "name": "Solomon Bush",
+      "email": "solomon@logharvestor.com",
+      "url": "https://github.com/solomon-bush"
+    }
+  ],
+  "author": "solomon@logharvestor.com",
+  "license": "ISC",
+  "main": "dist/index.ts",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc",
+    "lint": "eslint . --ext .ts,.js",
+    "test": "npm run build && ava --verbose"
   },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "qs": "^6.10.1",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "@ava/typescript": "^3.0.1",
+    "@types/jsonwebtoken": "^8.5.8",
+    "@types/qs": "^6.9.7",
+    "@types/set-interval-async": "^1.0.0",
+    "@types/uuid": "^8.3.4",
+    "@typescript-eslint/eslint-plugin": "^5.10.0",
+    "@typescript-eslint/parser": "^5.10.0",
+    "ava": "^4.0.1",
+    "eslint": "^8.7.0",
+    "set-interval-async": "^2.0.3",
+    "typescript": "^4.5.5"
+  },
+  "files": [
+    "dist",
+    "!dist/test*"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/logharvestor/log-harvestor-node.git"
+  },
+  "bugs": {
+    "url": "https://github.com/logharvestor/log-harvestor-node/issues"
+  },
+  "homepage": "https://github.com/logharvestor/log-harvestor-node#readme",
   "keywords": [
     "logging",
     "log-harvestor",
@@ -16,25 +58,16 @@
     "javascript logger",
     "log4j alternative",
     "log4j",
-    "log4js",
+    "pino",
     "winston",
     "bunyan"
   ],
-  "author": "solomon@logharvestor.com",
-  "license": "ISC",
-  "files": [
-    "src/"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/solomon-bush/log-harvestor-node.git"
-  },
-  "bugs": {
-    "url": "https://github.com/solomon-bush/log-harvestor-node/issues"
-  },
-  "homepage": "https://github.com/solomon-bush/log-harvestor-node#readme",
-  "dependencies": {
-    "axios": "^0.21.1",
-    "qs": "^6.10.1"
+  "ava": {
+    "typescript": {
+      "rewritePaths": {
+        "src/": "dist/"
+      },
+      "compile": false
+    }
   }
 }

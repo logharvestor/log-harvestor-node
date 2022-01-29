@@ -9,12 +9,28 @@ jobs:
     name: 🚀 Release to NPM
     runs-on: ubuntu-latest
     steps: 
-      - name: Checkout
+      - name: ⏬ Checkout
         uses: actions/checkout@v2
-      - name: Node
+
+      - name: 🧬 Setup Node
         uses: actions/setup-node@v2.3.0
         with:
           registry-url: https://registry.npmjs.org
+
+      - name: 🌵 Cache dependencies
+        id: cache
+        uses: actions/cache@v2
+        with:
+          path: ./node_modules
+          key: modules-${{ hashFiles('package-lock.json') }}
+
+      - name: ⌛ Install dependencies
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: npm ci --ignore-scripts
+
+      - name: ⚙️ Build
+        run: npm run build
+
       - name: 🚀 Publish
         run: npm publish --access public
         env: 
