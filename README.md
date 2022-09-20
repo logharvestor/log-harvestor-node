@@ -15,7 +15,7 @@
 
 # log-harvestor-node
 
-[![Rate on Openbase](https://badges.openbase.com/js/rating/log-harvestor-node.svg)](https://openbase.com/js/log-harvestor-node?utm_source=embedded&utm_medium=badge&utm_campaign=rate-badge)
+[![Rate on Openbase](https://badges.openbase.com/js/rating/log-harvestor-node.svg)](https://openbase.com/js/log-harvestor-node?utm_source=embedded&utm_medium=badge&utm_campaign=rate-badge) [![kandi X-Ray](https://kandi.openweaver.com/badges/xray.svg)](https://kandi.openweaver.com/typescript/logharvestor/log-harvestor-node)
 
 
 ## Documentation
