@@ -1,7 +1,7 @@
 {
   "name": "log-harvestor-node",
   "description": "The node module for Log Harvestor",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "contributors": [
     {
       "name": "Solomon Bush",
@@ -11,7 +11,7 @@
   ],
   "author": "solomon@logharvestor.com",
   "license": "ISC",
-  "main": "dist/index.ts",
+  "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",

@@ -5,10 +5,10 @@ import { ConfigValidationResult, ConfigValidtionError, Forwarder, ForwarderConfi
 import { API_URL } from './config'
 
 const validToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImZvcndhcmRlciJ9.eyJfaWQiOiI2MTI4OTIwYjNjMzQyNTAwMjFkZGQyMTciLCJpYXQiOjE2MzAwNDg3ODN9.sb8lfpp01CC-y0T9Z5XiIEdy-JBeDHSBD8Gd05bZYaQ'
-const validTokenLocal = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImZvcndhcmRlciJ9.eyJfaWQiOiI2MDk5Mzg5Mjg4MWQ0MzAwMjkxNzY2MGUiLCJpYXQiOjE2Mjc3MzAzOTZ9.uEY-6s8hK8HX6qy-5Su8Esb-iRXewc9hXYhRLIlALCo'
+const validTokenLocal = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImZvcndhcmRlciJ9.eyJfaWQiOiI2MzFlZDM2ZjU4NjYyNDJkNmJkMjg1ZTEiLCJpYXQiOjE2NjI5NjQ1OTF9.yZQL_xJgnqNDYg-GEdLxkMEy9poKKx8IZdFoHwYhRJU'
 const invalidToken = '123ABC'
 const validApiUrl = API_URL
-const validApiUrlLocal = 'http://localhost:3001/api/log'
+const validApiUrlLocal = 'http://0.0.0.0:4000/api/log'
 const invalidApiUrl = "tcp://localhost:3001"
 
 interface ConfigTest {
